@@ -1,0 +1,23 @@
+{
+  "name": "amtica-node",
+  "version": "1.0.0",
+  "description": "Test Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Datta Gsr",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.8",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
+  }
+}
