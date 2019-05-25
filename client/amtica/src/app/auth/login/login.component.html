@@ -1,0 +1,43 @@
+<div class="row">
+
+  <div class="container">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <label for="name">Email*</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="userMdl.email" #name="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required />
+              <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                <div *ngIf="name.errors.required">Email is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <label for="name">Password*</label>
+              <input type="password" class="form-control" name="username" [(ngModel)]="userMdl.password"
+                #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required />
+              <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                <div *ngIf="username.errors.required">Password is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-cursor">Login</button>
+          </div>
+          <div class="col-md-3">
+            <a routerLink="/signup">Signup ?</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

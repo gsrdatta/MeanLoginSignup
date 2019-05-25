@@ -45,7 +45,7 @@ router.post('/', (req, res, next) => {
                 },
             });
         }
-        if (!user.address1) {
+        if (!user.address) {
             return res.status(422).json({
                 errors: {
                     message: 'Address is required',
@@ -87,7 +87,7 @@ router.post('/', (req, res, next) => {
     }
 });
 
-router.post('/login', auth.optional, (req, res, next) => {
+router.post('/login', (req, res, next) => {
     try {
         const user = req.body;
         if (!user.email) {
@@ -106,9 +106,9 @@ router.post('/login', auth.optional, (req, res, next) => {
                 },
             });
         }
-        Users.find({ email: user.email }, (err, user) => {
-            if (user.length > 0) {
-                let finalUser = new Users(user[0]);
+        Users.find({ email: user.email }, (err, users) => {
+            if (users.length > 0) {
+                let finalUser = new Users(users[0]);
                 if (finalUser.validatePassword(user.password)) {
                     const user = finalUser;
                     user.token = finalUser.generateJWT();

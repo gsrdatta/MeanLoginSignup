@@ -9,9 +9,10 @@ const UsersSchema = new Schema({
     username: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: Number, required: true },
-    address1: { type: String, required: true },
-    address2: { type: String, required: false },
+    address: { type: String, required: true },
     createdDate: { type: Date },
+    salt: { type: String },
+    hash: { type: String },
     lastUpdatedDate: { type: Date },
     expiryDate: { type: Date },
 });
